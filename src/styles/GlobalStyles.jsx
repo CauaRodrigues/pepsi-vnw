@@ -14,10 +14,13 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     text-decoration: none;
+    list-style: none;
   }
   
-  body,
-  html {
+
+  main {
+    width: 100vw;
+    height: 100vh;
     background-color: ${(props) => {
 			switch (props.bgcolor) {
 				case "diet":
@@ -28,16 +31,9 @@ export const GlobalStyles = createGlobalStyle`
 					return "#0261bf";
 			}
 		}};
-    color:  #ffffff;
     transition: all 0.6s;
-
-    height: 100vh;
-    width: 100%;
-  }
-  
-  ul,
-  li {
-    list-style: none;
+    z-index: -1;
+    color:  #ffffff;
   }
   
   img {
@@ -45,7 +41,7 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-  main {
+  article {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -18,16 +18,16 @@ export default function Home() {
 	}, [handlerPepsi]);
 
 	return (
-		<>
+		<main>
 			<GlobalStyles bgcolor={pepsi} />
 
 			<Header />
 
-			<main>
+			<article>
 				<Hero image={pepsi} />
 				<SocialBar />
 				<Footer handlerPepsi={handlerPepsi} />
-			</main>
-		</>
+			</article>
+		</main>
 	);
 }
