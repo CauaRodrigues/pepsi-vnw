@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GlobalStyles } from "./styles/GlobalStyles";
 
 import Header from "./components/Header";
@@ -7,17 +7,19 @@ import SocialBar from "./components/SocialBar";
 import Footer from "./components/Footer";
 
 export default function Home() {
-	const [theme, setTheme] = useState("blue");
-	const [pepsi, setPepsi] = useState("blue");
+	const hasStorage = localStorage.getItem("pepsi") || "blue";
 
-	const handlerPepsi = (pepsiAndTheme) => {
-		setTheme(pepsiAndTheme);
-		setPepsi(pepsiAndTheme);
-	};
+	const [pepsi, setPepsi] = useState(hasStorage);
+
+	const handlerPepsi = (pepsiType) => setPepsi(pepsiType);
+
+	useEffect(() => {
+		localStorage.setItem("pepsi", pepsi);
+	}, [handlerPepsi]);
 
 	return (
 		<>
-			<GlobalStyles bgcolor={theme} />
+			<GlobalStyles bgcolor={pepsi} />
 
 			<Header />
 

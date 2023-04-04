@@ -18,13 +18,17 @@ export const GlobalStyles = createGlobalStyle`
   
   body,
   html {
-    background-color: ${(props) =>
-			props.bgcolor === "blue"
-				? "#0261bf"
-				: props.bgcolor === "diet"
-				? "#e60c2d"
-				: "#1f1e1f"};
-    color:  #ffff;
+    background-color: ${(props) => {
+			switch (props.bgcolor) {
+				case "diet":
+					return "#e60c2d";
+				case "zero":
+					return "#1f1e1f";
+				default:
+					return "#0261bf";
+			}
+		}};
+    color:  #ffffff;
     transition: all 0.6s;
 
     height: 100vh;
